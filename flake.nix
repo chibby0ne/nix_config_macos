@@ -42,6 +42,7 @@
 
 	      git
 	      gh
+	      procps
 
 
 	      bat
@@ -54,12 +55,23 @@
 	      tree
 	      tokei
 	      wget
-        ];
+	      rsync
+
+	      keepassxc
+
+      ];
+
+      fonts.packages = with pkgs; [
+        nerdfonts
+	source-code-pro
+      ];
      
       homebrew = {
         enable = true;
 	brews = [
 	  "mas"
+	  "jenv"
+	  "goenv"
 	];
 	casks = [
 	  "hammerspoon"
@@ -71,12 +83,23 @@
 	#};
 	onActivation.cleanup = "zap";
 	onActivation.autoUpdate = true;
-	onActivation.autoUpgrade = true;
+	onActivation.upgrade = true;
       };
 
-      #system.defaults = {
-      #  dock.autohide = true;
-      #};
+
+      system.defaults = {
+        dock.autohide = true;
+	dock.persistent-apps = [
+	  "${pkgs.alacritty}/Applications/Alacritty.app"
+	  "/Applications/Firefox.app"
+	  "${pkgs.obsidian}/Applications/Obsidian.app"
+	];
+	finder.FXPreferredViewStyle = "clmv";
+	loginwindow.GuestEnabled = false;
+	NSGlobalDomain.AppleICUForce24HourTime = true;
+	NSGlobalDomain.AppleInterfaceStyle = "Dark";
+	NSGlobalDomain.KeyRepeat = 2;
+      };
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
