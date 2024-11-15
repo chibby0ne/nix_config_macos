@@ -45,6 +45,10 @@
 	      procps
 
 
+	      # ui-client
+	      nodejs_latest
+	      yarn
+
 	      bat
 	      fd
 	      fzf
@@ -57,7 +61,15 @@
 	      wget
 	      rsync
 
+	      nginx
+
 	      keepassxc
+
+
+	      # LSPs
+	      cargo
+	      rust-analyzer
+	      gopls
 
       ];
 
@@ -72,11 +84,18 @@
 	  "mas"
 	  "jenv"
 	  "goenv"
+	  "podman"
+	  "vagrant"
 	];
 	casks = [
 	  "hammerspoon"
 	  "firefox"
 	  "the-unarchiver"
+	  "zulu@8"
+	  "zulu@17"
+	  "zulu@21"
+	  "rancher"
+	  "podman-desktop"
 	];
 	#masApps = {
 	#  "Yoink" = 457622435;
@@ -91,7 +110,13 @@
         dock.autohide = true;
 	dock.persistent-apps = [
 	  "${pkgs.alacritty}/Applications/Alacritty.app"
+	  "/Applications/Slack.app"
 	  "/Applications/Firefox.app"
+	  "/Applications/1Password.app"
+	  "${pkgs.jetbrains.idea-community}/Applications/IntelliJ IDEA CE.app"
+	  "${pkgs.vscode}/Applications/Visual Studio Code.app"
+	  "/Applications/Podman Desktop.app"
+	  "/Applications/Rancher Desktop.app"
 	  "${pkgs.obsidian}/Applications/Obsidian.app"
 	];
 	finder.FXPreferredViewStyle = "clmv";
