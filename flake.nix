@@ -24,7 +24,8 @@
 	      mkalias
 	      obsidian
 
-
+	      python312Packages.ipython
+	      python312
 	      gopls
 	      pyright
 	      go
