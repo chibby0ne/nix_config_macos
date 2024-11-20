@@ -85,7 +85,6 @@
 	  "jenv"
 	  "goenv"
 	  "podman"
-	  "vagrant"
 	];
 	casks = [
 	  "hammerspoon"
@@ -96,6 +95,12 @@
 	  "zulu@21"
 	  "rancher"
 	  "podman-desktop"
+	  "virtualbox"
+	  # Comes from the hashicorp/tap tap
+	  "hashicorp/tap/hashicorp-vagrant"
+	];
+	taps = [
+	  "hashicorp/tap"
 	];
 	#masApps = {
 	#  "Yoink" = 457622435;
