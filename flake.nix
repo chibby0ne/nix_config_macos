@@ -61,6 +61,7 @@
 	      tokei
 	      wget
 	      rsync
+	      nix-index
 
 	      nginx
 
@@ -68,8 +69,6 @@
 
 
 	      # LSPs
-	      cargo
-	      rust-analyzer
 	      gopls
 
       ];
@@ -86,6 +85,7 @@
 	  "jenv"
 	  "goenv"
 	  "podman"
+	  "direnv"
 	];
 	casks = [
 	  "hammerspoon"
