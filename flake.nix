@@ -97,6 +97,7 @@
 	  "rancher"
 	  "podman-desktop"
 	  "virtualbox"
+	  "openshift-client"
 	  # Comes from the hashicorp/tap tap
 	  "hashicorp/tap/hashicorp-vagrant"
 	];
