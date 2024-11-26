@@ -94,6 +94,7 @@
 	  "google-chrome"
 	  "the-unarchiver"
 	  "zulu@8"
+	  "zulu@11"
 	  "zulu@17"
 	  "zulu@21"
 	  "rancher"
