@@ -86,10 +86,12 @@
 	  "goenv"
 	  "podman"
 	  "direnv"
+	  "ko"
 	];
 	casks = [
 	  "hammerspoon"
 	  "firefox"
+	  "google-chrome"
 	  "the-unarchiver"
 	  "zulu@8"
 	  "zulu@17"
