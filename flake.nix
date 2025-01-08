@@ -14,7 +14,6 @@
       
       nixpkgs.config.allowUnfree = true;
 
-
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
@@ -38,7 +37,6 @@
 	      poetry
 	      virtualenv
 
-	      kubernetes-helm
 	      google-cloud-sdk
 
 	      git
@@ -62,6 +60,7 @@
 	      wget
 	      rsync
 	      nix-index
+	      gnused
 
 	      nginx
 
@@ -84,9 +83,9 @@
 	  "mas"
 	  "jenv"
 	  "goenv"
-	  "podman"
 	  "direnv"
 	  "ko"
+	  "docker-credential-helper"
 	];
 	casks = [
 	  "hammerspoon"
@@ -97,9 +96,8 @@
 	  "zulu@11"
 	  "zulu@17"
 	  "zulu@21"
-	  "rancher"
-	  "podman-desktop"
-	  "virtualbox"
+	  "graalvm-jdk"
+	  "oracle-jdk"
 	  "openshift-client"
 	  # Comes from the hashicorp/tap tap
 	  "hashicorp/tap/hashicorp-vagrant"
@@ -125,8 +123,6 @@
 	  "/Applications/1Password.app"
 	  "${pkgs.jetbrains.idea-community}/Applications/IntelliJ IDEA CE.app"
 	  "${pkgs.vscode}/Applications/Visual Studio Code.app"
-	  "/Applications/Podman Desktop.app"
-	  "/Applications/Rancher Desktop.app"
 	  "${pkgs.obsidian}/Applications/Obsidian.app"
 	];
 	finder.FXPreferredViewStyle = "clmv";
