@@ -70,6 +70,10 @@
 	      # LSPs
 	      gopls
 
+	      yq
+	      kubebuilder
+
+
       ];
 
       fonts.packages = with pkgs; [
