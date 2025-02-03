@@ -11,12 +11,14 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, config, ... }: {
-      
+
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = with pkgs; let gdk = google-cloud-sdk.withExtraComponents( with google-cloud-sdk.components; [
+	  gke-gcloud-auth-plugin
+      ]); in [
 	      neovim
 	      tmux
 	      alacritty
@@ -36,8 +38,6 @@
 	      nodejs
 	      poetry
 	      virtualenv
-
-	      google-cloud-sdk
 
 	      git
 	      gh
@@ -61,6 +61,7 @@
 	      rsync
 	      nix-index
 	      gnused
+	      podman
 
 	      nginx
 
@@ -72,8 +73,7 @@
 
 	      yq
 	      kubebuilder
-
-
+	      gdk
       ];
 
       fonts.packages = with pkgs; [
@@ -99,11 +99,13 @@
 	  "zulu@11"
 	  "zulu@17"
 	  "zulu@21"
-	  "graalvm-jdk"
+	  # "graalvm-jdk"
 	  "oracle-jdk"
 	  "openshift-client"
 	  # Comes from the hashicorp/tap tap
 	  "hashicorp/tap/hashicorp-vagrant"
+	  "wireshark-chmodbpf"
+	  "rancher"
 	];
 	taps = [
 	  "hashicorp/tap"
@@ -124,6 +126,7 @@
 	  "/Applications/Slack.app"
 	  "/Applications/Firefox.app"
 	  "/Applications/1Password.app"
+	  "/Applications/Rancher Desktop.app"
 	  "${pkgs.jetbrains.idea-community}/Applications/IntelliJ IDEA CE.app"
 	  "${pkgs.vscode}/Applications/Visual Studio Code.app"
 	  "${pkgs.obsidian}/Applications/Obsidian.app"
