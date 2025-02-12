@@ -38,6 +38,7 @@
 	      nodejs
 	      poetry
 	      virtualenv
+	      httpie
 
 	      git
 	      gh
