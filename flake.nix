@@ -16,9 +16,22 @@
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; let gdk = google-cloud-sdk.withExtraComponents( with google-cloud-sdk.components; [
-	  gke-gcloud-auth-plugin
-      ]); in [
+      environment.systemPackages = with pkgs;
+	let gdk = google-cloud-sdk.withExtraComponents( with google-cloud-sdk.components; [
+	      gke-gcloud-auth-plugin
+	]);
+	    languageServerPackages = with pkgs; [
+	      gopls
+	      pyright
+	      nil
+	      pyright
+	      rust-analyzer
+	      lua-language-server
+	      luajitPackages.luarocks
+	      libclang
+	      clang-tools
+	    ];
+	in [
 	      neovim
 	      tmux
 	      alacritty
@@ -27,10 +40,7 @@
 
 	      python312Packages.ipython
 	      python312
-	      gopls
-	      pyright
 	      go
-	      zulu
 	      jetbrains.idea-community
 	      vscode
 
@@ -67,20 +77,15 @@
 	      nginx
 
 	      keepassxc
-
-
-	      # LSPs
-	      gopls
-
 	      yq
 	      kubebuilder
 	      gdk
-      ];
+      ] ++ languageServerPackages;
 
       fonts.packages = with pkgs; [
 	source-code-pro
       ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-     
+
       homebrew = {
         enable = true;
 	brews = [
@@ -92,6 +97,8 @@
 	  "docker-credential-helper"
 	];
 	casks = [
+          "slack"
+	  "1password"
 	  "hammerspoon"
 	  "firefox"
 	  "google-chrome"
@@ -184,8 +191,8 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."macbookpro" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#MacBook-Pro-von-Antonio
+    darwinConfigurations."MacBook-Pro-von-Antonio" = nix-darwin.lib.darwinSystem {
       modules = [
       	configuration
 	nix-homebrew.darwinModules.nix-homebrew
@@ -202,6 +209,6 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."macbookpro".pkgs;
+    darwinPackages = self.darwinConfigurations."MacBook-Pro-von-Antonio".pkgs;
   };
 }
