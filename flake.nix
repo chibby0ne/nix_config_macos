@@ -30,57 +30,68 @@
 	      luajitPackages.luarocks
 	      libclang
 	      clang-tools
+	      uv
 	    ];
-	in [
-	      neovim
-	      tmux
-	      alacritty
-	      mkalias
-	      obsidian
-
+	    languagePackages = with pkgs; [
 	      python312Packages.ipython
 	      python312
 	      go
-	      jetbrains.idea-community
-	      vscode
-
 	      maven
 	      nodejs
-	      poetry
-	      virtualenv
-	      httpie
-
-	      git
-	      gh
-	      procps
-
-
-	      # ui-client
 	      nodejs_latest
+	      virtualenv
 	      yarn
-
+	    ];
+	    shellUtilPackages = with pkgs; [
 	      bat
 	      fd
 	      fzf
+	      git
+	      gh
+	      gnused
 	      htop
 	      jq
 	      lsof
+	      nix-index
 	      ripgrep
+	      rsync
 	      tree
 	      tokei
 	      wget
-	      rsync
-	      nix-index
-	      gnused
-	      podman
-
-	      nginx
-
-	      keepassxc
 	      yq
+	    ];
+	    toolPackages = with pkgs; [
+	      neovim
+	      tmux
+	      alacritty
+	      obsidian
+	      mkalias
+	      linkerd_edge
+	      httpie
+	      procps
+	      nginx
+	      keepassxc
+	    ];
+	    kubernetesPackages = with pkgs; [
+	      podman
 	      kubebuilder
+	      kafkactl
+	      awscli2
+	      teleport
+	      skopeo
+	    ];
+	    idePackages = with pkgs; [
+	      jetbrains.idea-community
+	      vscode
+	    ];
+	in [
 	      gdk
-      ] ++ languageServerPackages;
+      ] ++ languageServerPackages
+	++ languagePackages
+	++ shellUtilPackages
+	++ toolPackages
+	++ kubernetesPackages
+	++ idePackages;
 
       fonts.packages = with pkgs; [
 	source-code-pro
