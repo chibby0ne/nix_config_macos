@@ -59,12 +59,12 @@
 	      tokei
 	      wget
 	      yq
+	      trivy
 	    ];
 	    toolPackages = with pkgs; [
 	      neovim
 	      tmux
 	      alacritty
-	      obsidian
 	      mkalias
 	      linkerd_edge
 	      httpie
@@ -79,6 +79,7 @@
 	      awscli2
 	      teleport
 	      skopeo
+	      eksctl
 	    ];
 	    idePackages = with pkgs; [
 	      jetbrains.idea-community
@@ -108,6 +109,7 @@
 	  "docker-credential-helper"
 	];
 	casks = [
+	  "obsidian"
           "slack"
 	  "1password"
 	  "hammerspoon"
@@ -148,7 +150,7 @@
 	  "/Applications/Rancher Desktop.app"
 	  "${pkgs.jetbrains.idea-community}/Applications/IntelliJ IDEA CE.app"
 	  "${pkgs.vscode}/Applications/Visual Studio Code.app"
-	  "${pkgs.obsidian}/Applications/Obsidian.app"
+	  "/Applications/Obsidian.app"
 	];
 	finder.FXPreferredViewStyle = "clmv";
 	loginwindow.GuestEnabled = false;
@@ -158,7 +160,7 @@
       };
 
       # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
+      # services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
