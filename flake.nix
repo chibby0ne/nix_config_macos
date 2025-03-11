@@ -96,6 +96,7 @@
 
       fonts.packages = with pkgs; [
 	source-code-pro
+	office-code-pro
       ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
       homebrew = {
