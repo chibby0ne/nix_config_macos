@@ -37,18 +37,20 @@
             languagePackages = with pkgs; [
               python312Packages.ipython
               python312
-              go
               maven
               nodejs
               nodejs_latest
               virtualenv
               yarn
+              cargo
+              go
             ];
             shellUtilPackages = with pkgs; [
               bat
               fd
               fzf
               git
+              git-lfs
               gh
               gnused
               htop
@@ -78,15 +80,23 @@
               websocat
               netcat-gnu
               socat
+              postman
+              asciinema
+              yabai
             ];
             kubernetesPackages = with pkgs; [
               podman
               kubebuilder
               kafkactl
               awscli2
-              teleport
               skopeo
               eksctl
+              colima
+              docker-client
+              docker-buildx
+              kubernetes-helm
+              kubectl
+              minikube
             ];
             idePackages = with pkgs; [ jetbrains.idea-community vscode ];
           in [ gdk ] ++ languageServerPackages ++ languagePackages
