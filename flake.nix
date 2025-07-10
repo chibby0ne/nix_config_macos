@@ -10,6 +10,8 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
     let
+
+      username = "antoniogutierrez";
       configuration = { pkgs, config, ... }: {
 
         nixpkgs.config.allowUnfree = true;
@@ -29,8 +31,7 @@
               rust-analyzer
               lua-language-server
               luajitPackages.luarocks
-              libclang
-              clang-tools
+              clang
               uv
               nixfmt-classic
             ];
@@ -74,9 +75,7 @@
               linkerd_edge
               httpie
               procps
-              nginx
               keepassxc
-              nginx
               websocat
               netcat-gnu
               socat
@@ -97,6 +96,7 @@
               kubernetes-helm
               kubectl
               minikube
+              kubebuilder
             ];
             idePackages = with pkgs; [ jetbrains.idea-community vscode ];
           in [ gdk ] ++ languageServerPackages ++ languagePackages
@@ -118,6 +118,9 @@
             "ko"
             "docker-credential-helper"
             "nvm"
+            "qemu"
+            "cfergeau/crc/vfkit"
+            "nginx"
           ];
           casks = [
             "obsidian"
@@ -139,7 +142,7 @@
             "wireshark-chmodbpf"
             "rancher"
           ];
-          taps = [ "hashicorp/tap" ];
+          taps = [ "hashicorp/tap" "cfergeau/crc" ];
           #masApps = {
           #  "Yoink" = 457622435;
           #};
@@ -166,6 +169,7 @@
           NSGlobalDomain.AppleInterfaceStyle = "Dark";
           NSGlobalDomain.KeyRepeat = 2;
         };
+        system.primaryUser = username;
 
         # Auto upgrade nix package and the daemon service.
         # services.nix-daemon.enable = true;
@@ -211,7 +215,7 @@
                 # Apple Silicon Only
                 enableRosetta = true;
                 # User owning homebrew prefix
-                user = "antoniogutierrez";
+                user = username;
               };
             }
           ];
