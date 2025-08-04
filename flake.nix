@@ -23,6 +23,7 @@
             gdk = google-cloud-sdk.withExtraComponents
               (with google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]);
             languageServerPackages = with pkgs; [
+              bash-language-server
               gopls
               pyright
               nil
@@ -31,9 +32,10 @@
               rust-analyzer
               lua-language-server
               luajitPackages.luarocks
-              clang
+              # llvmPackages_20.clangUseLLVM
               uv
               nixfmt-classic
+              yaml-language-server
             ];
             languagePackages = with pkgs; [
               python312Packages.ipython
@@ -121,6 +123,8 @@
             "qemu"
             "cfergeau/crc/vfkit"
             "nginx"
+            "azure-cli"
+            "openshift-cli"
           ];
           casks = [
             "obsidian"
@@ -136,7 +140,6 @@
             "zulu@21"
             # "graalvm-jdk"
             "oracle-jdk"
-            "openshift-client"
             # Comes from the hashicorp/tap tap
             "hashicorp/tap/hashicorp-vagrant"
             "wireshark-chmodbpf"
