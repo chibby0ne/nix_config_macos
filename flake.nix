@@ -99,6 +99,7 @@
               kubectl
               minikube
               kubebuilder
+              ibmcloud-cli
             ];
             idePackages = with pkgs; [ jetbrains.idea-community vscode ];
           in [ gdk ] ++ languageServerPackages ++ languagePackages
@@ -115,7 +116,6 @@
           brews = [
             "mas"
             "jenv"
-            "goenv"
             "direnv"
             "ko"
             "docker-credential-helper"
@@ -127,6 +127,7 @@
             "openshift-cli"
           ];
           casks = [
+            "gimp"
             "obsidian"
             "slack"
             "1password"
