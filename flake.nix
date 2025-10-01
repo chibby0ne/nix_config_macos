@@ -94,7 +94,7 @@
                 socat
                 postman
                 asciinema
-                yabai
+                pre-commit
               ];
               kubernetesPackages = with pkgs; [
                 podman
@@ -147,9 +147,12 @@
               "nginx"
               "azure-cli"
               "openshift-cli"
+              "yabai"
+              "skhd"
             ];
             casks = [
               "gimp"
+              "ghostty"
               "obsidian"
               "slack"
               "1password"
@@ -161,8 +164,8 @@
               "zulu@11"
               "zulu@17"
               "zulu@21"
-              # "graalvm-jdk"
-              "oracle-jdk"
+              "graalvm-jdk"
+              # "oracle-jdk"
               # Comes from the hashicorp/tap tap
               "hashicorp/tap/hashicorp-vagrant"
               "wireshark-chmodbpf"
@@ -171,6 +174,7 @@
             taps = [
               "hashicorp/tap"
               "cfergeau/crc"
+              "koekeishiya/formulae"
             ];
             #masApps = {
             #  "Yoink" = 457622435;
@@ -183,7 +187,7 @@
           system.defaults = {
             dock.autohide = true;
             dock.persistent-apps = [
-              "${pkgs.alacritty}/Applications/Alacritty.app"
+              "/Applications/Ghostty.app"
               "/Applications/Slack.app"
               "/Applications/Firefox.app"
               "/Applications/1Password.app"
