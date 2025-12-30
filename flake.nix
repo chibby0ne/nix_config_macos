@@ -26,6 +26,7 @@
               bash-language-server
               basedpyright
               gopls
+              delve
               pyright
               nil
               nixd
@@ -37,6 +38,7 @@
               uv
               nixfmt-classic
               yaml-language-server
+              typescript-language-server
             ];
             languagePackages = with pkgs; [
               python312Packages.ipython
@@ -70,6 +72,7 @@
               trivy
               jfrog-cli
               coreutils
+              grpcurl
             ];
             toolPackages = with pkgs; [
               neovim
@@ -146,7 +149,7 @@
             "zulu@11"
             "zulu@17"
             "zulu@21"
-            "graalvm-jdk"
+            # "graalvm-jdk"
             "karabiner-elements"
             # "oracle-jdk"
             # Comes from the hashicorp/tap tap
